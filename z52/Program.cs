@@ -86,15 +86,15 @@ static void PrintDoubleTable(double[,] generatedTable)
 static double[] GetArrayAverage(double[,] arrayTable)
 {
     double[] findedNumber = new double[arrayTable.GetLength(0)];
-    for (int i = 0; i < arrayTable.GetLength(0); i++)
+    for (int i = 0; i < arrayTable.GetLength(1); i++)
     {
         double sumElements = 0;
-        for (int j = 0; j < arrayTable.GetLength(1); j++)
+        for (int j = 0; j < arrayTable.GetLength(0); j++)
         {
-            sumElements += arrayTable[i, j];
+            sumElements += arrayTable[j, i];
         }
 
-        findedNumber[i] = sumElements / arrayTable.GetLength(1);
+        findedNumber[i] = sumElements / arrayTable.GetLength(0);
     }
 
     return findedNumber;
